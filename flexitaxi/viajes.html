@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="reponsive.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sitios de interes</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.1/mapbox-gl-geocoder.min.js'></script>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.1/mapbox-gl-geocoder.css' type='text/css' />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="images/logo2.png" alt="Logo de la web">
+      </div>      <nav>
+        <ul class="nav-links">
+          <li><a href="INICIO.html">Inicio</a></li>
+          <li><a href="solicitar_servicio.html">Solicitar Servicios</a></li>
+          <li><a href="sitios_de_interes.html">Sitios de interes</a></li>
+          <li><a href="quienes_somso.html">¿Quienes somos?</a></li>
+
+        </ul>
+
+      <div class="burger">
+        <div   class="line"></div>
+        <div   class="line"></div>
+        <div class="line"> </div>
+        <div class="line"></div>
+      </div>
+    </nav>
+
+    </header>
+    <div class="container">
+        <label for="origin">Origen:</label>
+        <input type="text" id="origin" placeholder="Ingrese el origen">
+      
+        <label for="destination">Destino:</label>
+        <input type="text" id="destination" placeholder="Ingrese el destino">
+       
+
+        <button >Calcular Viaje</button>
+
+      </div>
+      
+      <div id="map"></div>
+      
+    </div>
+      
+      
+
+          
+
+
+
+
+<script src="javascript/menuburguer.js"></script>
+<script src="javascript/viajes.js"></script>
+
+
+  </body>
+</html>
