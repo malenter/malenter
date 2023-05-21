@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>sitios de interes</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
-<script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
   <body>
     <header>
@@ -17,7 +16,7 @@
       </div>      <nav>
         <ul class="nav-links">
           <li><a href="INICIO.html">Inicio</a></li>
-          <li><a href="solicitar_servicio.html">Solicitar Servicios</a></li>
+          <li><a href="Login/Register/index.html">Solicitar Servicios</a></li>
           <li><a href="sitios_de_interes.html">Sitios de interes</a></li>
           <li><a href="quienes_somso.html">¿Quienes somos?</a></li>
 
@@ -35,15 +34,20 @@
     <div class="container">
 
       <h1>SITIOS DE INTERES</h1>
-      <div id="categorias">
-        <label for="restaurantes"><input type="checkbox" id="restaurantes" name="categorias" value="restaurantes">Restaurantes</label>
-        <label for="gimnasios"><input type="checkbox" id="gimnasios" name="categorias" value="gimnasios">Gimnasios</label>
-        <label for="parques"><input type="checkbox" id="parques" name="categorias" value="parques">Parques</label>
-        <label for="museos"><input type="checkbox" id="museos" name="categorias" value="museos">Museos</label>
+    
+      <div>
+        <button onclick="placeSearch('food')">restaurantes</button>
+        <button onclick="placeSearch('Gimnasios')">gimnasios</button>
+        <button onclick="placeSearch(' Night Club')">bares</button>
+        <button onclick="placeSearch('coffee')">cafés</button>
+        <button onclick="placeSearch('shops')">tiendas</button>
+        <button onclick="placeSearch('hotel')">hoteles</button>
+        <button onclick="placeSearch('Theater')">cines</button>
       </div>
+
       <h1>Lista de Sitios</h1>
 
-      <div id="lugares"></div>
+      <div id="results-container"></div>
 
 
 </div>

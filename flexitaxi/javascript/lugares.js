@@ -1,46 +1,67 @@
-const token = 'sk.eyJ1IjoianNhbmFicmlhNTI3IiwiYSI6ImNsaGJjeTFnYjBxNjczZ250NG91NDVjamkifQ.0XnME13wZrkynIJYnp0Pvg';
-
-navigator.geolocation.getCurrentPosition((position) => {
-  const { latitude, longitude } = position.coords;
-  
-  const radius = 20000000;
-
-  const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?access_token=${token}&types=poi&limit=10&radius=${radius}`;
-  
-  // Realizar la solicitud HTTP
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      // Verificar si data.features está definido
-      if (data.features) {
-        const lugares = data.features;
-        // Mostrar los lugares en el HTML
-        const lugaresDiv = document.getElementById('lugares');
-        lugaresDiv.innerHTML = '';
-        lugares.forEach(lugar => {
-          const nombre = lugar.text;
-          const direccion = lugar.properties.address;
-          const categoria = lugar.properties.category;
-          const lugarDiv = document.createElement('div');
-          lugarDiv.innerHTML = `<h3>${nombre}</h3><p>${direccion}</p><p>${categoria}</p>`;
-          lugaresDiv.appendChild(lugarDiv);
-        });
-      } else {
-        // Mostrar un mensaje de error en el HTML
-        const lugaresDiv = document.getElementById('lugares');
-        lugaresDiv.innerHTML = '<p>No se encontraron lugares de interés</p>';
-      }
-    })
-    .catch(error => {
-      console.error(error);
-      // Mostrar un mensaje de error en el HTML
-      const lugaresDiv = document.getElementById('lugares');
-      lugaresDiv.innerHTML = '<p>Error al buscar los lugares de interés</p>';
+async function placeSearch(category) {
+  try {
+    const searchParams = new URLSearchParams({
+      query: category,
+      open_now: 'true',
+      sort: 'DISTANCE',
+      near: 'Bucaramanga',
+      venuePhotos: '1'
     });
+
+    const results = await fetch(
+      `https://api.foursquare.com/v3/places/search?${searchParams}`,
+      {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          Authorization: 'fsq3skH30o7Ygp7E+TudNhxzCkwXO+Bx+icf45NZ750T6RQ='
+        }
+      }
+    );
+
+    const data = await results.json();
+    const resultsContainer = document.getElementById('results-container');
+    
+    // Elimina cualquier contenido anterior en el contenedor de resultados
+    resultsContainer.innerHTML = '';
+    
+    // Recorre los resultados y crea elementos HTML para mostrar la información
+// Recorre los resultados y crea elementos HTML para mostrar la información
+// Recorre los resultados y crea elementos HTML para mostrar la información
+// Recorre los resultados y crea elementos HTML para mostrar la información
+data.results.forEach(result => {
+  const placeName = result.name;
+  const placeAddress = result.location.address || 'Sin dirección disponible';
+ 
+
+  // Crea un elemento <div> para mostrar la información del lugar
+  const placeElement = document.createElement('div');
+  placeElement.className = 'place';
+
+  // Crea un elemento <h2> para mostrar el nombre del lugar
+  const nameElement = document.createElement('h2');
+  nameElement.textContent = placeName;
+
+  // Crea un elemento <p> para mostrar la dirección del lugar
+  const addressElement = document.createElement('p');
+  addressElement.textContent = `Dirección: ${placeAddress}`;
+
+  // Crea un elemento <img> para mostrar la foto del lugar
+
+  // Crea un elemento <p> para mostrar el horario de atención del lugar
   
-}, error => {
-  console.error(error);
-  // Mostrar un mensaje de error en el HTML
-  const lugaresDiv = document.getElementById('lugares');
-  lugaresDiv.innerHTML = '<p>Error al obtener la ubicación del usuario</p>';
+  
+
+  // Agrega los elementos al elemento contenedor del lugar
+  placeElement.appendChild(nameElement);
+  placeElement.appendChild(addressElement);
+
+  // Agrega el elemento contenedor del lugar al contenedor de resultados
+  resultsContainer.appendChild(placeElement);
 });
+    
+      } catch (err) {
+        console.error(err);
+      }
+    }
+ 

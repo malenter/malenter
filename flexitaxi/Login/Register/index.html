@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lan="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login y Registro</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!--Toastify.js para mensajes-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!--Estilos de barra superior de Camilo-->
+    <link rel="stylesheet" href="../../reponsive.css" />
+    <!--Estilos del Login-->
+   <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/script.js" type="module"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="../../images/logo2.png" alt="Logo de la web">
+      </div>      <nav>
+        <ul class="nav-links">
+          <li><a href="../../INICIO.html">Inicio</a></li>
+          <li><a href="index.html">Solicitar Servicios</a></li>
+          <li><a href="../../sitios_de_interes.html">Sitios de interes</a></li>
+          <li><a href="../../quienes_somso.html">¿Quienes somos?</a></li>
+          <li><a class="logout" href="#" id="Logout">Cerrar Sesión</a></li>
+
+        </ul>
+
+      <div class="burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"> </div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </nav>
+
+    </header>
+    <main>
+      <div class="contenedor__todo">
+        <div class="caja__trasera">
+          <div class="caja__trasera-login">
+            <h3>¿Ya tienes una cuenta?</h3>
+            <p>Inicia sesión para entrar en la página</p>
+            <button id="btn__iniciar-sesion">Iniciar Sesión</button>
+          </div>
+          <div class="caja__trasera-register">
+            <h3>¿Aún no tienes una cuenta?</h3>
+            <p>Resístrate para que puedas iniciar sesión</p>
+            <button id="btn__registrarse">Registrarse</button>
+          </div>
+        </div>
+        <!--Creación del formularios de Login y registro-->
+        <div class="contenedor__login-register">
+          <!--Creación del formulario del Login-->
+          <form id="formulario__login" action="" class="formulario__login">
+            <h2>Iniciar Sesión</h2>
+            <input type="text" id="login_correo" placeholder="Correo Electrónico" />
+            <input type="password" id="login_contrasena" placeholder="Contraseña" />
+            <button type="submit">Entrar</button>
+          </form>
+          <!--Creación del formulario de registro-->
+          <form id="formulario__register" action="" class="formulario__register">
+            <h2>Registrarse</h2>
+            <input type="text" id="login_Nombre" placeholder="Nombre Completo" />
+            <input type="text" id="login_Email" placeholder="Correo Electrónico" />
+            <input type="text" id="login_Usuario" placeholder="Usuario" />
+            <input type="password" id="login_Password" placeholder="Contraseña" />
+            <button type='submit'>Registrarse</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <!--Toastify.js-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="../../javascript/menuburguer.js"></script>
+
+  </body>
+</html>
