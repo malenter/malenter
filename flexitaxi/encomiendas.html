@@ -17,7 +17,7 @@
       </div>      <nav>
         <ul class="nav-links">
           <li><a href="INICIO.html">Inicio</a></li>
-          <li><a href="solicitar_servicio.html">Solicitar Servicios</a></li>
+          <li><a href="#">Solicitar Servicios</a></li>
           <li><a href="sitios_de_interes.html">Sitios de interes</a></li>
           <li><a href="quienes_somso.html">¿Quienes somos?</a></li>
 
@@ -33,7 +33,59 @@
 
     </header>
     <div class="container">
+      <button id="volver-menu">Volver al menú</button>
+      <form>
+        <div class="input-container">
+          <label for="recogida">Dirección de recogida:</label>
+          <input type="text" id="recogida" name="recogida">
+        </div>
+        <div class="input-container">
+          <label for="entrega">Dirección de entrega:</label>
+          <input type="text" id="entrega" name="entrega">
+        </div>
+        <div class="input-container">
+          <label for="precio">Precio ofrecido:</label>
+          <input type="number" id="precio" name="precio" min="0" step=".01">
+        </div>
+        <div class="input-container">
+          <label for="telefono">Teléfono:</label>
+          <input type="text" id="telefono" name="telefono">
+        </div>
+        <div class="input-container">
+          <label for="peso_paquete">Peso del paquete:</label>
+          <input type="text" id="peso_paquete" name="peso_paquete" placeholder="Ej: 1 kg">
+        </div>
+        <div class="input-container">
+          <label for="info_paquete">Información adicional del paquete:</label>
+          <textarea id="info_paquete" name="info_paquete" placeholder="Ej: Forma: rectangular, Contenido: libros"></textarea>
+        </div> 
+        <div class="select-container">
+          <label for="tipo_recogida">Tipo de dirección de recogida:</label>
+          <select id="tipo_recogida" name="tipo_recogida">
+            <option value="casa">Casa</option>
+            <option value="torre">Torre</option>
+          </select>
+        </div>
+      
+        <div class="input-container">
+          <label for="info_recogida">Información adicional de la dirección de recogida:</label>
+          <input type="text" id="info_recogida" name="info_recogida" placeholder="Ej: Torre 1, Manzana H Casa 18" style="display:none;">
+        </div>
+        <div class="select-container">
+          <label for="tipo_entrega">Tipo de dirección de entrega:</label>
+          <select id="tipo_entrega" name="tipo_entrega">
+            <option value="casa">Casa</option>
+            <option value="torre">Torre</option>
+          </select>
+        </div>
+        <div class="input-container">
+          <label for="info_entrega">Información adicional de la dirección de entrega:</label>
+          <input type="text" id="info_entrega" name="info_entrega" placeholder="Ej: Torre 1, Manzana H Casa 18" style="display:none;">
+        </div>
+       
 
+        <button type="submit">enviar solicitud</button>
+      </form>
     </div>
     <script src="javascript/menuburguer.js"></script>
 

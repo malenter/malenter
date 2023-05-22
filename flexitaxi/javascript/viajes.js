@@ -15,8 +15,10 @@ const directions = new MapboxDirections({
   geometries: 'geojson',
   controls: { instructions: false },
   flyTo: false,
-  options: {
-   proximity: [-73.1198, 7.1194] // Agregar el parámetro proximity para limitar las sugerencias de ruta a una región cercana a Bucaramanga
+  modes: { // Establecer la opción de modo solo en la conducción
+    driving: { enabled: true,  // Habilitar la opción de conducción
+      // Agregar las opciones de la opción de conducción si es necesario
+    }
   }
 });
 
@@ -37,8 +39,8 @@ navigator.geolocation.getCurrentPosition(position => {
   .setLngLat(userLocation)
   .addTo(map);
   function calculateCost(distance, duration) {
-  const costoPorKilometro = 0.5;
-  const costoPorMinuto = 0.2;
+  const costoPorKilometro = 1000;
+  const costoPorMinuto = 400;
   const costoTotal = (distance * costoPorKilometro) + (duration * costoPorMinuto);
   return costoTotal.toFixed(2);
 }
@@ -54,4 +56,5 @@ navigator.geolocation.getCurrentPosition(position => {
       const costoElemento = document.getElementById('costo');
       costoElemento.textContent = '$' + cost;
   });
+
 });
